@@ -4,3 +4,4 @@
 stow --target "$HOME" bash
 stow --target "$HOME" tmux
 stow --target "$HOME" nvim
+stow --target "$HOME" alacritty
