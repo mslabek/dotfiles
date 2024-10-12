@@ -1,6 +1,7 @@
 # Installation
 1. Install all dependencies (now manually)
 2. Run `install.sh`
+3. Install Tmux plugins through TPM
 
 # Dependencies
 1. Font "JetBrainsMono Nerd Font Mono"
@@ -12,3 +13,4 @@
 
 # TODO
 1. Install dependencies through ansible
+

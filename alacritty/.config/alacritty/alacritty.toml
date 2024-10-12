@@ -1,5 +1,15 @@
 live_config_reload = true
 
+# Themes - uncomment one
+import = [
+  # uncomment the flavour you want below:
+  # "~/.config/alacritty/themes/catppuccin-latte.toml"
+  # "~/.config/alacritty/themes/catppuccin-frappe.toml"
+   "~/.config/alacritty/themes/catppuccin-macchiato.toml"
+  # "~/.config/alacritty/themes/catppuccin-mocha.toml"
+]
+
+
 [env]
 TERM = "xterm-256color"
 
