@@ -20,3 +20,4 @@ vim.opt.ignorecase = true
 vim.opt.virtualedit = "block"
 vim.opt.inccommand = "split"
 
+vim.g.mapleader = " "
