@@ -20,6 +20,7 @@ _comp_options+=(globdots)		# Include hidden files.
 bindkey -v
 export KEYTIMEOUT=1
 
+source <(fzf --zsh)
 
 # Change cursor shape for different vi modes.
 function zle-keymap-select {

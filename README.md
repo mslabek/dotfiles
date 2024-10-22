@@ -4,12 +4,14 @@
 3. Install Tmux plugins through TPM
 
 # Dependencies
-1. Font "JetBrainsMono Nerd Font Mono"
-2. Tmux
-3. Alacritty
-4. Bash
-5. Neovim
-6. Stow
+- Font "JetBrainsMono Nerd Font Mono"
+- Tmux
+- Alacritty
+- Bash
+- Neovim
+- Stow
+- zsh
+- fzf
 
 # TODO
 1. Install dependencies through ansible
