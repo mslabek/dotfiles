@@ -1,15 +1,5 @@
-live_config_reload = true
 
-# Themes - uncomment one
-import = [
-  # uncomment the flavour you want below:
-  # "~/.config/alacritty/themes/catppuccin-latte.toml"
-  # "~/.config/alacritty/themes/catppuccin-frappe.toml"
-   "~/.config/alacritty/themes/catppuccin-macchiato.toml"
-  # "~/.config/alacritty/themes/catppuccin-mocha.toml"
-]
-
-[shell]
+[terminal.shell]
 program = "/bin/zsh"
 args = ["-l"]
 
@@ -37,3 +27,17 @@ dynamic_title = true
 [window.padding]
 x = 4
 y = 0
+
+[general]
+live_config_reload = true
+
+# Themes - uncomment one
+import = [
+  # uncomment the flavour you want below:
+  # "~/.config/alacritty/themes/catppuccin-latte.toml"
+  # "~/.config/alacritty/themes/catppuccin-frappe.toml"
+   "~/.config/alacritty/themes/catppuccin-macchiato.toml"
+  # "~/.config/alacritty/themes/catppuccin-mocha.toml"
+]
+
+[terminal]
