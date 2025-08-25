@@ -1,2 +1,3 @@
-require("config.options")
-require("config.lazy")
+require('options')
+require('plugins')
+
