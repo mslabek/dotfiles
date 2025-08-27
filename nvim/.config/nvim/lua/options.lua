@@ -13,5 +13,5 @@ vim.o.relativenumber = true
 vim.o.autoindent = true -- Use auto indent
 vim.o.expandtab = true -- Convert tabs to spaces
 
-vim.o.shiftwidth = 2 -- Use this number of spaces for indentation
-vim.o.tabstop = 2 -- Insert 2 spaces for a tab
+vim.o.shiftwidth = 4 -- Use this number of spaces for indentation
+vim.o.tabstop = 4 -- Insert 2 spaces for a tab
