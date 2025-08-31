@@ -15,6 +15,7 @@ require("plugins.catppuccin")
 require("plugins.which-key")
 require("plugins.treesitter")
 require("plugins.conform")
-require("plugins.mason")
+require("plugins.lsp")
 require("plugins.games")
+require("plugins.fzf")
 
