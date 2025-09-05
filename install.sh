@@ -7,3 +7,4 @@ stow --target "$HOME" nvim
 stow --target "$HOME" alacritty
 stow --target "$HOME" zsh
 stow --target "$HOME" ghostty
+stow --target "$HOME" yazi
