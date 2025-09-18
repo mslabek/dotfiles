@@ -1,12 +1,16 @@
 local add = MiniDeps.add
 
--- Mason setup
+-- mason setup
 add('mason-org/mason.nvim')
 
 require('mason').setup({
 
 })
 
+add("neovim/nvim-lspconfig")
+vim.lsp.enable({
+    'basedpyright'
+})
 
 --- Metals setup
 add("scalameta/nvim-metals")
