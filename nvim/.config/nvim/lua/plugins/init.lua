@@ -12,10 +12,11 @@ end
 require("mini.deps").setup()
 
 require("plugins.catppuccin")
-require("plugins.which-key")
 require("plugins.treesitter")
 require("plugins.formatting")
 require("plugins.lsp")
 require("plugins.games")
 require("plugins.fzf")
-
+require("plugins.leetcode")
+require("plugins.mini-clue")
+require("plugins.mini-files")

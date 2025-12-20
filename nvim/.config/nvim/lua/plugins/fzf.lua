@@ -6,4 +6,4 @@ local fzf = require("fzf-lua")
 
 vim.keymap.set("n", "<leader>f", function()
     fzf.files()
-end)
+end, { desc = "Find files" })

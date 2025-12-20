@@ -9,7 +9,8 @@ require('mason').setup({
 
 add("neovim/nvim-lspconfig")
 vim.lsp.enable({
-    'basedpyright'
+    'basedpyright',
+    "lua_ls"
 })
 
 --- Metals setup
