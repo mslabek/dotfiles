@@ -15,8 +15,12 @@ vim.lsp.config["bash-language-server"] = {
 
 local lsp_servers = { "lua_ls", "bashls" }
 
---- TODO: migrate keybinds into autocmd on LspAttach
-local on_attach = function(client, bufnr)
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if not client then
+      return
+    end
 	local map = function(mode, lhs, rhs, desc)
 		vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = "LSP: " .. desc })
 	end
@@ -39,13 +43,14 @@ local on_attach = function(client, bufnr)
 	map("n", "[d", vim.diagnostic.goto_prev, "Previous Diagnostic")
 	map("n", "]d", vim.diagnostic.goto_next, "Next Diagnostic")
 	map("n", "<leader>e", vim.diagnostic.open_float, "Show Diagnostic Error")
-end
+
+  end,
+})
 
 local blink_capabilities = require("blink.cmp").get_lsp_capabilities()
 
 for _, lsp in ipairs(lsp_servers) do
 	vim.lsp.config[lsp] = {
-		on_attach = on_attach,
 		capabilities = blink_capabilities,
 	}
 end
@@ -62,7 +67,6 @@ add({
 
 local metals_config = require("metals").bare_config()
 metals_config.capabilities = blink_capabilities
-metals_config.on_attach = on_attach
 
 local nvim_metals_group = vim.api.nvim_create_augroup("nvim-metals", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
@@ -83,15 +87,3 @@ add({
 require('java').setup({})
 vim.lsp.enable('jdtls')
 
-local jdtls_group = vim.api.nvim_create_augroup("jdtls_lsp", {})
-vim.lsp.config.jdtls = {
-    on_attach = on_attach
-}
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "java" },
-	group = jdtls_group,
-	callback = function()
-		require("config.jdtls").setup_jdtls()
-
-	end,
-})
