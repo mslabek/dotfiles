@@ -13,7 +13,7 @@ vim.lsp.config["bash-language-server"] = {
 	filetypes = { "sh" },
 }
 
-local lsp_servers = { "lua_ls", "bashls" }
+local lsp_servers = { "lua_ls", "bashls", "basedpyright" }
 
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
@@ -67,6 +67,9 @@ add({
 
 local metals_config = require("metals").bare_config()
 metals_config.capabilities = blink_capabilities
+metals_config.on_attach = function(client, bufnr)
+    require("metals").setup_dap()
+end
 
 local nvim_metals_group = vim.api.nvim_create_augroup("nvim-metals", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
