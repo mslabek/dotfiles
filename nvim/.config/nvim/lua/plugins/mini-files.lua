@@ -61,3 +61,41 @@ files.setup({
 vim.keymap.set("n", "<leader>e", function()
 	files.open()
 end, { desc = "Explore files" })
+
+--- Copied from LazyVim
+vim.api.nvim_create_autocmd("User", {
+	pattern = "MiniFilesActionRename",
+	callback = function(event)
+		local from = event.data.from
+		local to = event.data.to
+		local lsp_clients = vim.lsp.get_clients()
+
+		for _, client in ipairs(lsp_clients) do
+			print(
+				string.format(
+					"LSP: %s | id=%d | supports rename=%s",
+					client.name,
+					client.id,
+					vim.inspect(
+						client.server_capabilities.workspace and client.server_capabilities.workspace.fileOperations
+					)
+				)
+			)
+		end
+		for _, client in ipairs(lsp_clients) do
+			if client.supports_method("workspace/willRenameFiles") then
+				local resp = client.request_sync("workspace/willRenameFiles", {
+					files = {
+						{
+							oldUri = vim.uri_from_fname(from),
+							newUri = vim.uri_from_fname(to),
+						},
+					},
+				}, 1000, 0)
+				if resp and resp.result ~= nil then
+					vim.lsp.util.apply_workspace_edit(resp.result, client.offset_encoding)
+				end
+			end
+		end
+	end,
+})

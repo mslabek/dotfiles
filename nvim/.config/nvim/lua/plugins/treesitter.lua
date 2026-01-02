@@ -1,7 +1,9 @@
-local add = MiniDeps.add
+local add, now = MiniDeps.add, MiniDeps.now
 
+--- TODO: migrate to main branch - treesitter 1.0
 add({
 	source = "nvim-treesitter/nvim-treesitter",
+    checkout = 'master',
 	hooks = {
 		post_checkout = function()
 			vim.cmd("TSUpdate")
@@ -9,7 +11,6 @@ add({
 	},
 })
 add("nvim-treesitter/nvim-treesitter-textobjects")
-
 
 require("nvim-treesitter.configs").setup({
 	ensure_installed = { "lua", "markdown", "yaml", "scala", "java", "python" },
@@ -44,4 +45,3 @@ require("nvim-treesitter.configs").setup({
 		},
 	},
 })
-

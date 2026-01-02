@@ -1,11 +1,9 @@
-local add, now = MiniDeps.add, MiniDeps.now
+local add = MiniDeps.add
 
-now(function()
-  add({ source = 'catppuccin/nvim', name = 'catppuccin'})
-  require('catppuccin').setup({
-    flavour = 'macchiato',
-    no_italic = true
-  })
-  vim.cmd.colorscheme "catppuccin"
-end
-)
+add({ source = "catppuccin/nvim", name = "catppuccin" })
+require("catppuccin").setup({
+	flavour = "macchiato",
+	no_italic = true,
+	integrations = { blink_cmp = true },
+})
+vim.cmd.colorscheme("catppuccin")
