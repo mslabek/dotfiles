@@ -8,6 +8,8 @@ conform.setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
         python = { "black" },
+        yaml = { "yamlfmt" },
+        json = { "jq" },
 	},
 })
 

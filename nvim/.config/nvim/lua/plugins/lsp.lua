@@ -13,7 +13,7 @@ vim.lsp.config["bash-language-server"] = {
 	filetypes = { "sh" },
 }
 
-local lsp_servers = { "lua_ls", "bashls", "basedpyright" }
+local lsp_servers = { "lua_ls", "bashls", "basedpyright", "yaml-language-server" }
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(args)
